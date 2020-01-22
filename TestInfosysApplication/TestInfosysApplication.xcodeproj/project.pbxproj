@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		FE34D64023D71F5D00B34880 /* FactListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE34D63F23D71F5D00B34880 /* FactListModel.swift */; };
 		FE34D65123D761AB00B34880 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE34D65023D761AB00B34880 /* APIClient.swift */; };
 		FE34D65323D776B000B34880 /* FactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE34D65223D776B000B34880 /* FactTableViewCell.swift */; };
+		FE7EDCA923D8532D00134AC4 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7EDCA823D8532C00134AC4 /* String+Additions.swift */; };
 		FEACEB2423D7099400166FFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEACEB2323D7099400166FFE /* AppDelegate.swift */; };
 		FEACEB2623D7099400166FFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEACEB2523D7099400166FFE /* ViewController.swift */; };
 		FEACEB2B23D7099F00166FFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEACEB2A23D7099F00166FFE /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		FE34D63F23D71F5D00B34880 /* FactListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactListModel.swift; sourceTree = "<group>"; };
 		FE34D65023D761AB00B34880 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		FE34D65223D776B000B34880 /* FactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactTableViewCell.swift; sourceTree = "<group>"; };
+		FE7EDCA823D8532C00134AC4 /* String+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
 		FEACEB2023D7099400166FFE /* TestInfosysApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestInfosysApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEACEB2323D7099400166FFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEACEB2523D7099400166FFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -119,7 +121,6 @@
 				C007A994D69DD48025BA4DC6 /* Pods-TestInfosysApplicationUITests.debug.xcconfig */,
 				E43487E79CAD8054B3A1AC1D /* Pods-TestInfosysApplicationUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -156,6 +157,14 @@
 				FE34D65023D761AB00B34880 /* APIClient.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		FE7EDCA723D852D300134AC4 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FE7EDCA823D8532C00134AC4 /* String+Additions.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		FEACEB1723D7099400166FFE = {
@@ -215,6 +224,7 @@
 		FEACEB5123D70B5A00166FFE /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				FE7EDCA723D852D300134AC4 /* Helper */,
 				FE34D64323D7567B00B34880 /* Network */,
 				FEACEB5523D70BBF00166FFE /* Assets */,
 				FEACEB2323D7099400166FFE /* AppDelegate.swift */,
@@ -482,6 +492,7 @@
 			files = (
 				FE34D64023D71F5D00B34880 /* FactListModel.swift in Sources */,
 				FE34D63A23D7169700B34880 /* FactModel.swift in Sources */,
+				FE7EDCA923D8532D00134AC4 /* String+Additions.swift in Sources */,
 				FE128DC823D7F04F006C9990 /* FactListViewModel.swift in Sources */,
 				FEACEB2623D7099400166FFE /* ViewController.swift in Sources */,
 				FE128DCA23D7F238006C9990 /* ViewController+Datasource.swift in Sources */,

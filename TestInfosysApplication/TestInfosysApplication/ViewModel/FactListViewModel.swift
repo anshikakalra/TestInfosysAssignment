@@ -33,6 +33,7 @@ class FactListViewModel {
                 do {
                     let items = try JSONDecoder().decode(FactListModel.self, from: (data))
                     self.titleDatasource?.data.value = [items.title ?? ""]
+                    //remove items with no data
                     self.tableDatasource?.data.value =   items.rows?.filter({$0.title != nil || $0.description != nil || $0.imageHref != nil}) ?? []
                 } catch {
                     
