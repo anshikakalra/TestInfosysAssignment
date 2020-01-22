@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         view.addSubview(tableView)
         tableView.dataSource = self
         setupTableViewConstraints()
-        tableView.register(InfoItemTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.factCell.rawValue)
+        tableView.register(FactTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.factCell.rawValue)
     }
 }
 
@@ -87,9 +87,9 @@ extension ViewController: UITableViewDataSource {
         return infoItemsManager.infoListItems.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.factCell.rawValue, for: indexPath) as! InfoItemTableViewCell
-        cell.nameLabel.text = infoItemsManager.infoListItems[indexPath.row].title
-        cell.detailLabel.text = infoItemsManager.infoListItems[indexPath.row].description
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.factCell.rawValue, for: indexPath) as! FactTableViewCell
+        cell.titleLabel.text = infoItemsManager.infoListItems[indexPath.row].title
+        cell.descriptionLabel.text = infoItemsManager.infoListItems[indexPath.row].description
         return cell
     }
 }
