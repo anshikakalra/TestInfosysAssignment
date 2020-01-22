@@ -15,6 +15,11 @@ class ViewController: UIViewController {
     let navBar = UINavigationBar()
     var safeArea: UILayoutGuide!
     let infoItemsManager = FactsManager.init(apiClient: APIClient())
+    let dataSource = FactListDataSource()
+    lazy var viewModel : FactListViewModel = {
+        let viewModel = FactListViewModel(dataSource: dataSource, apiClient: APIClient())
+        return viewModel
+    }()
     
     //MARK: View functions
     override func loadView() {
@@ -23,9 +28,15 @@ class ViewController: UIViewController {
         safeArea = view.layoutMarginsGuide
         setUpNavigationBar()
         setupTableView()
-        infoItemsManager.getItemsData { (result) in
-            self.tableView.reloadData()
+
+        self.dataSource.data.addAndNotify(observer: self) { [weak self] in
+            DispatchQueue.main.async {
+                   self?.tableView.reloadData()
+            }
+         
         }
+        
+        self.viewModel.getFactsData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +57,7 @@ class ViewController: UIViewController {
     }
     func setupTableView() {
         view.addSubview(tableView)
-        tableView.dataSource = self
+        self.tableView.dataSource = self.dataSource
         setupTableViewConstraints()
         tableView.register(FactTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.factCell.rawValue)
     }
@@ -79,19 +90,6 @@ extension ViewController {
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
-}
-
-//MARK:Table view delegate and datasource methods
-extension ViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return infoItemsManager.infoListItems.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.factCell.rawValue, for: indexPath) as! FactTableViewCell
-        cell.titleLabel.text = infoItemsManager.infoListItems[indexPath.row].title
-        cell.descriptionLabel.text = infoItemsManager.infoListItems[indexPath.row].description
-        return cell
-    }
 }
 
 //MARK: Navigation bar delegtae
