@@ -68,5 +68,13 @@ class FactTableViewCell: UITableViewCell {
         self.imageHrefImageView.sd_setImage(with: URL(string: fact.imageHref ?? ""), placeholderImage: nil, options: [.retryFailed], context: nil)
         self.selectionStyle = .none
     }
+    
+    //to ensure image duplicay does not happen
+    override func prepareForReuse() {
+        self.titleLabel.text = ""
+        self.descriptionLabel.text = ""
+        self.imageHrefImageView.sd_cancelCurrentImageLoad()
+        self.imageHrefImageView.image = nil
+    }
 }
 
