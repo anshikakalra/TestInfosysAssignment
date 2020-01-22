@@ -32,7 +32,7 @@ class FactListViewModel {
             case .success(let data):
                 do {
                     let items = try JSONDecoder().decode(FactListModel.self, from: (data))
-                    self.titleDatasource?.data.value = [items.title ?? "No Data"]
+                    self.titleDatasource?.data.value = [items.title ?? ""]
                     self.tableDatasource?.data.value = items.rows ?? []
                 } catch {
                     
@@ -41,7 +41,5 @@ class FactListViewModel {
                 print("\(self) retrive error: \(error) from resource: \(resource)")
             }
         }
-        //after getting data set the main information model
-        //after model is set than update the viewcontroller
     }
 }

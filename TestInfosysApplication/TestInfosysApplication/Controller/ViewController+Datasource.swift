@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class FactListDataSource : GenericDataSource<FactModel>, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -20,10 +20,8 @@ class FactListDataSource : GenericDataSource<FactModel>, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.factCell.rawValue, for: indexPath) as! FactTableViewCell
-        let factListModel = self.data.value[indexPath.row]
-            cell.titleLabel.text = factListModel.title
-            cell.descriptionLabel.text = factListModel.description
-        
+        let factModel = self.data.value[indexPath.row]
+        cell.setupCellData(fact: factModel)
         return cell
     }
 }

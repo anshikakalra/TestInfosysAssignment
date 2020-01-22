@@ -44,6 +44,8 @@ class ViewController: UIViewController {
         self.navigationTitleDataSource.data.addAndNotify(observer: self) { [weak self] in
             DispatchQueue.main.async {
                 let navItem = UINavigationItem(title:self?.navigationTitleDataSource.setUpNavigationTitle() ?? "")
+                let doneItem = UIBarButtonItem(title: "Refresh", style: .done, target: self, action: #selector(self?.refreshData))
+                navItem.rightBarButtonItem = doneItem
                 self?.navBar.setItems([navItem], animated: false)
                 self?.navBar.setNeedsLayout()
                 self?.navBar.layoutIfNeeded()
@@ -66,7 +68,7 @@ class ViewController: UIViewController {
         navBar.isTranslucent = false
         navBar.delegate = self
         navBar.backgroundColor = .white
-       
+        
         setupNavigationBarConstriants()
         
     }
@@ -75,6 +77,11 @@ class ViewController: UIViewController {
         self.tableView.dataSource = self.tableDataSource
         setupTableViewConstraints()
         tableView.register(FactTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.factCell.rawValue)
+    }
+    
+    //MARK: Refresh data
+    @objc func refreshData() {
+        self.viewModel.getFactsData()
     }
 }
 

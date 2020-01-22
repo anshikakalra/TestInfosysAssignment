@@ -34,6 +34,7 @@ class FactTableViewCell: UITableViewCell {
         imageHrefImageView.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
         imageHrefImageView.widthAnchor.constraint(equalToConstant: 45.0).isActive = true
         imageHrefImageView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
+        
         // configure title
         contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -60,5 +61,12 @@ class FactTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: UI setup method
+    func setupCellData(fact: FactModel) {
+        self.titleLabel.text = fact.title
+        self.descriptionLabel.text = fact.description
+        self.imageHrefImageView.sd_setImage(with: URL(string: fact.imageHref ?? ""), placeholderImage: nil, options: [.retryFailed], context: nil)
+        self.selectionStyle = .none
+    }
 }
 
