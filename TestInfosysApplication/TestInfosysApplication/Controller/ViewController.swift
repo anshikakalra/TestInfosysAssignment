@@ -14,13 +14,13 @@ class ViewController: UIViewController {
     let tableView = UITableView()
     let navBar = UINavigationBar()
     var safeArea: UILayoutGuide!
-    let infoItemsManager = FactsManager.init(apiClient: APIClient())
-    let dataSource = FactListDataSource()
+    let tableDataSource = FactListDataSource()
+    let navigationTitleDataSource = FactListNavigationDataSource()
     lazy var viewModel : FactListViewModel = {
-        let viewModel = FactListViewModel(dataSource: dataSource, apiClient: APIClient())
+        let viewModel = FactListViewModel(titleDataSource: navigationTitleDataSource, tableDataSource: tableDataSource, apiClient: APIClient())
         return viewModel
     }()
-    
+
     //MARK: View functions
     override func loadView() {
         super.loadView()
@@ -28,14 +28,7 @@ class ViewController: UIViewController {
         safeArea = view.layoutMarginsGuide
         setUpNavigationBar()
         setupTableView()
-
-        self.dataSource.data.addAndNotify(observer: self) { [weak self] in
-            DispatchQueue.main.async {
-                   self?.tableView.reloadData()
-            }
-         
-        }
-        
+        setUpObservers()
         self.viewModel.getFactsData()
     }
     
@@ -45,19 +38,41 @@ class ViewController: UIViewController {
         
     }
     
+    //MARK: set up observers
+    func setUpObservers() {
+        // update navigation item based on title
+        self.navigationTitleDataSource.data.addAndNotify(observer: self) { [weak self] in
+            DispatchQueue.main.async {
+                let navItem = UINavigationItem(title:self?.navigationTitleDataSource.setUpNavigationTitle() ?? "")
+                self?.navBar.setItems([navItem], animated: false)
+                self?.navBar.setNeedsLayout()
+                self?.navBar.layoutIfNeeded()
+                self?.navBar.setNeedsDisplay()
+            }
+            
+        }
+        //update table view based on new table data
+        self.tableDataSource.data.addAndNotify(observer: self) { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+            
+        }
+    }
+    
     //MARK: set up subviews
     func setUpNavigationBar() {
         view.addSubview(navBar)
         navBar.isTranslucent = false
         navBar.delegate = self
         navBar.backgroundColor = .white
-        navBar.topItem?.title = "Set title"
+       
         setupNavigationBarConstriants()
         
     }
     func setupTableView() {
         view.addSubview(tableView)
-        self.tableView.dataSource = self.dataSource
+        self.tableView.dataSource = self.tableDataSource
         setupTableViewConstraints()
         tableView.register(FactTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.factCell.rawValue)
     }

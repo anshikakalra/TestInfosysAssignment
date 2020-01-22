@@ -27,3 +27,12 @@ class FactListDataSource : GenericDataSource<FactModel>, UITableViewDataSource {
         return cell
     }
 }
+
+class FactListNavigationDataSource: GenericDataSource<String> {
+    func setUpNavigationTitle()->String {
+        if data.value.count > 0 {
+            return data.value[0]
+        }
+        return ""
+    }
+}

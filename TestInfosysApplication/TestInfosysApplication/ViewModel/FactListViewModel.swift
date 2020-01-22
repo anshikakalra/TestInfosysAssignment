@@ -10,14 +10,14 @@ import Foundation
 
 class FactListViewModel {
     //MARK: Variables
-    weak var datasource: GenericDataSource<FactModel>?
+    weak var tableDatasource: GenericDataSource<FactModel>?
+    weak var titleDatasource: GenericDataSource<String>?
     private let apiClient: APIClient!
-    var factListTitle: String?
-    var facts: [FactModel]?
     
     //MARK: Initializers
-    init(dataSource: GenericDataSource<FactModel>?, apiClient: APIClient) {
-        self.datasource = dataSource
+    init(titleDataSource:GenericDataSource<String>?, tableDataSource: GenericDataSource<FactModel>?, apiClient: APIClient) {
+        self.titleDatasource = titleDataSource
+        self.tableDatasource = tableDataSource
         self.apiClient = apiClient
     }
 
@@ -32,8 +32,8 @@ class FactListViewModel {
             case .success(let data):
                 do {
                     let items = try JSONDecoder().decode(FactListModel.self, from: (data))
-                    self.factListTitle = items.title
-                    self.datasource?.data.value = items.rows ?? []
+                    self.titleDatasource?.data.value = [items.title ?? "No Data"]
+                    self.tableDatasource?.data.value = items.rows ?? []
                 } catch {
                     
                 }
