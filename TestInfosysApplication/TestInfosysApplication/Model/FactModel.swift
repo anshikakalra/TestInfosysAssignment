@@ -1,5 +1,5 @@
 //
-//  InfoItem.swift
+//  FactModel.swift
 //  TestInfosysApplication
 //
 //  Created by Anshika on 21/01/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct InfoItem: Codable {
+struct FactModel: Codable {
     let title: String?
     let description: String?
     let imageHref: String?
