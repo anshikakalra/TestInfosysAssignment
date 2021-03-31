@@ -10,8 +10,10 @@ import Foundation
 
 enum CellIdentifiers: String {
     case factCell = "cell"
+    case titleLabelCell = "titleLabelCell"
+    case imageCell = "imageCell"
 }
 
 enum ResourceURL: String {
-    case resourceURL = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
+    case resourceURL = "https://www.dropbox.com/s/q1ins5dsldsojzt/movies.json?dl=1"
 }

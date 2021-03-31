@@ -10,10 +10,10 @@ import Foundation
 
 struct FactListModel: Codable {
     let title: String?
-    var rows: [FactModel]?
+    var movies: [FactModel]?
     
     init(title: String, rows: [FactModel] = []) {
         self.title = title
-        self.rows = rows
+        self.movies = rows
     }
 }

@@ -28,6 +28,10 @@
 		FEACEB4423D7099F00166FFE /* TestInfosysApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEACEB4323D7099F00166FFE /* TestInfosysApplicationUITests.swift */; };
 		FEACEB5723D70C0800166FFE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEACEB5623D70C0800166FFE /* Constants.swift */; };
 		FEACEB5B23D7119100166FFE /* TestInfosysApplicationFactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEACEB5A23D7119100166FFE /* TestInfosysApplicationFactModel.swift */; };
+		FEC9B9372614841000AF0BD7 /* SingleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9B9352614841000AF0BD7 /* SingleImageTableViewCell.swift */; };
+		FEC9B9382614841000AF0BD7 /* SingleLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9B9362614841000AF0BD7 /* SingleLabelTableViewCell.swift */; };
+		FEC9B93A2614841E00AF0BD7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9B9392614841E00AF0BD7 /* DetailViewController.swift */; };
+		FEC9B93C2614846C00AF0BD7 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9B93B2614846C00AF0BD7 /* MovieDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +85,10 @@
 		FEACEB4523D7099F00166FFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEACEB5623D70C0800166FFE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FEACEB5A23D7119100166FFE /* TestInfosysApplicationFactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestInfosysApplicationFactModel.swift; path = ../TestInfosysApplicationFactModel.swift; sourceTree = "<group>"; };
+		FEC9B9352614841000AF0BD7 /* SingleImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleImageTableViewCell.swift; sourceTree = "<group>"; };
+		FEC9B9362614841000AF0BD7 /* SingleLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleLabelTableViewCell.swift; sourceTree = "<group>"; };
+		FEC9B9392614841E00AF0BD7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FEC9B93B2614846C00AF0BD7 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +154,8 @@
 		FE128DC223D7EC67006C9990 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FEC9B9352614841000AF0BD7 /* SingleImageTableViewCell.swift */,
+				FEC9B9362614841000AF0BD7 /* SingleLabelTableViewCell.swift */,
 				FE34D65223D776B000B34880 /* FactTableViewCell.swift */,
 			);
 			path = View;
@@ -247,6 +257,7 @@
 		FEACEB5323D70B9500166FFE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FEC9B93B2614846C00AF0BD7 /* MovieDetailViewModel.swift */,
 				FE128DC523D7EFAA006C9990 /* GenericDataSource.swift */,
 				FE128DC723D7F04F006C9990 /* FactListViewModel.swift */,
 			);
@@ -256,6 +267,7 @@
 		FEACEB5423D70BA100166FFE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FEC9B9392614841E00AF0BD7 /* DetailViewController.swift */,
 				FEACEB2523D7099400166FFE /* ViewController.swift */,
 				FE128DC923D7F238006C9990 /* ViewController+Datasource.swift */,
 			);
@@ -490,9 +502,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEC9B9372614841000AF0BD7 /* SingleImageTableViewCell.swift in Sources */,
 				FE34D64023D71F5D00B34880 /* FactListModel.swift in Sources */,
 				FE34D63A23D7169700B34880 /* FactModel.swift in Sources */,
 				FE7EDCA923D8532D00134AC4 /* String+Additions.swift in Sources */,
+				FEC9B93C2614846C00AF0BD7 /* MovieDetailViewModel.swift in Sources */,
 				FE128DC823D7F04F006C9990 /* FactListViewModel.swift in Sources */,
 				FEACEB2623D7099400166FFE /* ViewController.swift in Sources */,
 				FE128DCA23D7F238006C9990 /* ViewController+Datasource.swift in Sources */,
@@ -501,6 +515,8 @@
 				FE128DC423D7EF37006C9990 /* DynamicValue.swift in Sources */,
 				FEACEB5723D70C0800166FFE /* Constants.swift in Sources */,
 				FE128DC623D7EFAA006C9990 /* GenericDataSource.swift in Sources */,
+				FEC9B93A2614841E00AF0BD7 /* DetailViewController.swift in Sources */,
+				FEC9B9382614841000AF0BD7 /* SingleLabelTableViewCell.swift in Sources */,
 				FE34D65123D761AB00B34880 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

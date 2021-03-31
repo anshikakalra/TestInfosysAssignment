@@ -75,6 +75,7 @@ class ViewController: UIViewController {
     func setupTableView() {
         view.addSubview(tableView)
         self.tableView.dataSource = self.tableDataSource
+        tableView.delegate = self
         setupTableViewConstraints()
         tableView.register(FactTableViewCell.self, forCellReuseIdentifier: CellIdentifiers.factCell.rawValue)
     }
@@ -120,4 +121,14 @@ extension ViewController: UINavigationBarDelegate {
         return .topAttached
     }
 }
+
+//MARK: TableViewController delegate methods
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailViewController = DetailViewController()
+        detailViewController.viewModel = tableDataSource.data.value[indexPath.row]
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+    }
+}
+
 

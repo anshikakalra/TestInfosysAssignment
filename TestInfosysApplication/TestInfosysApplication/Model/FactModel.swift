@@ -10,6 +10,7 @@ import Foundation
 
 struct FactModel: Codable {
     let title: String?
-    let description: String?
     let imageHref: String?
+    let rating: Float?
+    let releaseDate: String?
 }
