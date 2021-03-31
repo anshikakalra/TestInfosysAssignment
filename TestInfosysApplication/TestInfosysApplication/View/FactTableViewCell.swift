@@ -64,7 +64,6 @@ class FactTableViewCell: UITableViewCell {
     //MARK: UI setup method
     func setupCellData(fact: FactModel) {
         self.titleLabel.text = fact.title
-        self.descriptionLabel.text = fact.description
         self.imageHrefImageView.sd_setImage(with: URL(string: fact.imageHref ?? ""), placeholderImage: nil, options: [.retryFailed], context: nil)
         self.selectionStyle = .none
     }
